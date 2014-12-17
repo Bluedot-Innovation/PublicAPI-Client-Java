@@ -41,7 +41,6 @@ public class AddApplication extends BDCommon
 		CloseableHttpClient httpRestClient  = HttpClientBuilder.create().build();
 		
 		HttpPost postRequest = new HttpPost(bdRestUrl);
-	   //TO DO - Remove creation time and last update time. This should be on the server
 		String application = "{ \"security\": {\"customerApiKey\":" +"\"" +bdCustomerApiKey + "\"" +"}," +
 		    "\"content\": {\"application\" : {\"name\" : \"Test Application-After-Create\", \"packageName\": \"au.com.bluedot.creationtestbd\"," +
 		    "\"nextRuleUpdateInterval\": 1000, \"lastUpdateTime\":"  + "\"" +new Date()+ "\"" + "," +

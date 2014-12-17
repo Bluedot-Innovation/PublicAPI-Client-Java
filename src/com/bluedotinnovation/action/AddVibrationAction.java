@@ -71,7 +71,7 @@ public class AddVibrationAction extends BDCommon
 	
 	private static String getJsonVibrationAction()
 	{
-		String urlActionJson =
+		String vibrationActionJson =
 			 "{" +
 	            "\"security\": {" +
 	                "\"apiKey\":" + "\"" + bdApplicationApiKey +"\"," +
@@ -90,6 +90,6 @@ public class AddVibrationAction extends BDCommon
 	                "}" +
 	            "}" +
 	        "}";		
-		return urlActionJson;
+		return vibrationActionJson;
 	}
 }
