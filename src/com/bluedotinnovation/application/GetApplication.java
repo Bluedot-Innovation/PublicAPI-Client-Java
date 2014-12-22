@@ -22,9 +22,9 @@ public class GetApplication {
 
 	public static void main(String[] args) throws IOException 
 	{
-		String apiKey     = "d3161e80-38d1-11e4-b039-bc305bf60831";
-		String customerId = "bc199c80-5441-11e4-b7bb-a0481cdc3311";
-		String url        = "http://localhost:3033/1/application/get?apiKey=" +apiKey + "&customerId=" + customerId;
+		String applicationId     = "a4e5b264-d231-436b-b30e-4065bd517f02";
+		String customerApiKey = "86577370-7b91-11e4-bcb7-a0481cdc3311";
+		String url        = "https://api.bluedotinnovation.com/1/application/get?apiKey=" +customerApiKey + "&applicationId=" + applicationId;
 
 		HttpClient client     = new DefaultHttpClient();
 		HttpGet request       = new HttpGet(url);
