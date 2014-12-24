@@ -1,5 +1,5 @@
 
-The Java API client project provides examples on how to interact with the Bluedot Public APIs. It is published as maven project allowing it to be run from command line or a maven enabled IDE.
+The Java API client project provides examples on how to interact with the Bluedot Public APIs. It is published as a maven project allowing it to be run from command line or a maven enabled IDE.
 
 Bluedot Public APIs expose the functionality of the backend system - Bluedot Point Access - that is usually accessed via the web user interface, as RESTful JSON web services. 
 Data added through the Public APIs can be edited via the Web Interface - Bluedot Point Access and vice versa  
