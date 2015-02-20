@@ -20,7 +20,7 @@ public class GetAllApplications
 	public static void main(String[] args) throws IOException 
 	{
 		String customerApiKey = "ca4c8d11-6942-11e4-ba4b-a0481cdc3311";
-		String url            = "https://api.bluedotinnovation.com/1/application/getAll?customerApiKey=" + customerApiKey;
+		String url            = "https://api.bluedotinnovation.com/1/applications?customerApiKey=" + customerApiKey;
 
 		HttpClient client     = new DefaultHttpClient();
 		HttpGet request       = new HttpGet(url);

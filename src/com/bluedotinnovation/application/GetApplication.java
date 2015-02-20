@@ -24,7 +24,7 @@ public class GetApplication {
 	{
 		String applicationId     = "a4e5b264-d231-436b-b30e-4065bd517f02";
 		String customerApiKey = "86577370-7b91-11e4-bcb7-a0481cdc3311";
-		String url        = "https://api.bluedotinnovation.com/1/application/get?apiKey=" +customerApiKey + "&applicationId=" + applicationId;
+		String url        = "https://api.bluedotinnovation.com/1/applications?apiKey=" +customerApiKey + "&applicationId=" + applicationId;
 
 		HttpClient client     = new DefaultHttpClient();
 		HttpGet request       = new HttpGet(url);

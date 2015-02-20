@@ -20,7 +20,7 @@ public class DeleteApplication extends BDCommon{
     public static void main(String[] args) throws ParseException, IOException{
         String customerApiKey = "0cbfd210-9544-11e4-b884-402cf464abb8";
         String applicationId  = "7b45e5b1-4464-43ae-902b-34fcb63d8a7b";
-        String url            = "https://api.bluedotinnovation.com/1/application/delete?customerApiKey="+customerApiKey+"&applicationId=" + applicationId;
+        String url            = "https://api.bluedotinnovation.com/1/applications?customerApiKey="+customerApiKey+"&applicationId=" + applicationId;
         HttpClient client     = new DefaultHttpClient();
         HttpDelete request    = new HttpDelete(url);
         HttpResponse response = client.execute(request);

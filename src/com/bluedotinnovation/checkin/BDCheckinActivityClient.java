@@ -27,7 +27,7 @@ public class BDCheckinActivityClient
     private static String bdZoneId            = "24d9a245-2087-421b-9972-2af2ee0970f1"; //This is the id of the zone being updated. This can be fetched by calling zones/getAll API
     private static String startDate           = "11/9/2014";
     private static String endDate             = "14/9/2014";
-    private static String bdRestBaseUrl       = "https://api.bluedotinnovation.com/1/checkinactivity/get";
+    private static String bdRestBaseUrl       = "https://api.bluedotinnovation.com/1/checkinactivities";
 
 	public static void main(String[] args) throws IOException, ParseException
 	{

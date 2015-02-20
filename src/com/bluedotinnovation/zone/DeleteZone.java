@@ -20,7 +20,7 @@ public class DeleteZone extends BDCommon{
     public static void main(String[] args) throws ParseException, IOException{
         String customerApiKey = "0cbfd210-9544-11e4-b884-402cf464abb8";
         String zoneId         = "d6c3b688-cf2e-4aac-b76b-b29f371f448e";
-        String url            = "https://api.bluedotinnovation.com/1/zone/delete?customerApiKey="+customerApiKey+"&zoneId=" + zoneId;
+        String url            = "https://api.bluedotinnovation.com/1/zones?customerApiKey="+customerApiKey+"&zoneId=" + zoneId;
         HttpClient client     = new DefaultHttpClient();
         HttpDelete request    = new HttpDelete(url);
         HttpResponse response = client.execute(request);
