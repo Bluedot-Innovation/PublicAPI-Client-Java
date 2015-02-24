@@ -38,7 +38,7 @@ public class AddVibrationActionWithConditions extends BDCommon
 			HttpPost postRequest = new HttpPost(bdRestUrl);
 	  
 		    JSONParser parser    = new JSONParser();
-		    JSONObject bdVibrationActionJSONObject = (JSONObject) parser.parse(getJsonVibrationActionWithConditions()); //Custom application action json
+		    JSONObject bdVibrationActionJSONObject = (JSONObject) parser.parse(getJsonVibrationActionWithConditions()); //Vibration action with conditions json
 					    		    
 			postRequest.addHeader("content-type", "application/json");
 

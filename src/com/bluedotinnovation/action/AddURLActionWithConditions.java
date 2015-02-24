@@ -35,7 +35,7 @@ public class AddURLActionWithConditions extends BDCommon
  			HttpPost postRequest = new HttpPost(bdRestUrl);
  	  
  		    JSONParser parser    = new JSONParser();
- 		    JSONObject bdUrlActionJSONObject = (JSONObject) parser.parse(getJsonURLActionWithConditions()); //Custom application action json
+ 		    JSONObject bdUrlActionJSONObject = (JSONObject) parser.parse(getJsonURLActionWithConditions()); //URL action with conditions json
  					    		    
  			postRequest.addHeader("content-type", "application/json");
 

@@ -34,11 +34,11 @@ public class UpdateURLAction extends BDCommon
 		HttpPost postRequest = new HttpPost(bdRestUrl);
   
 	    JSONParser parser    = new JSONParser();
-	    JSONObject bdMessageActionJSONObject = (JSONObject) parser.parse(getJsonUrlAction()); //message action json
+	    JSONObject bdUrlActionJSONObject = (JSONObject) parser.parse(getJsonUrlAction()); //URL action json
 				    		    
 		postRequest.addHeader("content-type", "application/json");
 
-		postRequest.setEntity(new StringEntity(bdMessageActionJSONObject.toJSONString()));
+		postRequest.setEntity(new StringEntity(bdUrlActionJSONObject.toJSONString()));
 	 
 	    HttpResponse response = httpRestClient.execute(postRequest);
 	    	    	    

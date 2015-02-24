@@ -40,7 +40,7 @@ public class AddMessageActionWithConditions extends BDCommon
 			HttpPost postRequest = new HttpPost(bdRestUrl);
 	  
 		    JSONParser parser    = new JSONParser();
-		    JSONObject bdMessageActionJSONObject = (JSONObject) parser.parse(getJsonMessageActionWithConditions()); //Custom application action json
+		    JSONObject bdMessageActionJSONObject = (JSONObject) parser.parse(getJsonMessageActionWithConditions()); //Message action with conditions json
 					    		    
 			postRequest.addHeader("content-type", "application/json");
 

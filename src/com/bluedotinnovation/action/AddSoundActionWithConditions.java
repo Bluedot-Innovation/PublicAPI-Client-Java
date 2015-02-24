@@ -35,7 +35,7 @@ public class AddSoundActionWithConditions extends BDCommon
  			HttpPost postRequest = new HttpPost(bdRestUrl);
  	  
  		    JSONParser parser    = new JSONParser();
- 		    JSONObject bdSoundActionJSONObject = (JSONObject) parser.parse(getJsonSoundActionWithConditions()); //Custom application action json
+ 		    JSONObject bdSoundActionJSONObject = (JSONObject) parser.parse(getJsonSoundActionWithConditions()); //Sound action with conditions json
  					    		    
  			postRequest.addHeader("content-type", "application/json");
 

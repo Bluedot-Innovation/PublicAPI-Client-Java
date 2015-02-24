@@ -36,7 +36,7 @@ public class CreateZone extends BDCommon
 		HttpPost postRequest        = new HttpPost(bdRestUrl);
   
 	    JSONParser parser           = new JSONParser();
-	    JSONObject bdZoneJSONObject = (JSONObject) parser.parse(getJsonZone()); //Vibration action json
+	    JSONObject bdZoneJSONObject = (JSONObject) parser.parse(getJsonZone()); //zone json
 				    		    
 		postRequest.addHeader("content-type", "application/json");
 

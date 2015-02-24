@@ -37,11 +37,11 @@ public class UpdateZone extends BDCommon
 		HttpPost postRequest = new HttpPost(bdRestUrl);
   
 	    JSONParser parser    = new JSONParser();
-	    JSONObject bdSoundActionJSONObject = (JSONObject) parser.parse(getJsonZone()); //Custom application action json
+	    JSONObject bdZoneJSONObject = (JSONObject) parser.parse(getJsonZone()); //zone json
 				    		    
 		postRequest.addHeader("content-type", "application/json");
 
-		postRequest.setEntity(new StringEntity(bdSoundActionJSONObject.toJSONString()));
+		postRequest.setEntity(new StringEntity(bdZoneJSONObject.toJSONString()));
 	 
 	    HttpResponse response = httpRestClient.execute(postRequest);
 	    	    	    

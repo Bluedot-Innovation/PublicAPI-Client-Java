@@ -41,7 +41,7 @@ public class UpdateFence extends BDCommon
 		HttpPost postRequest = new HttpPost(bdRestUrl);
   
 	    JSONParser parser    = new JSONParser();
-	    JSONObject bdPolygonalFenceJSONObject = (JSONObject) parser.parse(getJsonPolygonalFence()); //add a polygonal fence
+	    JSONObject bdPolygonalFenceJSONObject = (JSONObject) parser.parse(getJsonPolygonalFence()); //update a polygonal fence
 				    		    
 		postRequest.addHeader("content-type", "application/json");
 

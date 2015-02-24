@@ -43,7 +43,7 @@ public class AddSoundAction extends BDCommon
 		HttpPost postRequest = new HttpPost(bdRestUrl);
   
 	    JSONParser parser    = new JSONParser();
-	    JSONObject bdSoundActionJSONObject = (JSONObject) parser.parse(getJsonSoundAction()); //Vibration action json
+	    JSONObject bdSoundActionJSONObject = (JSONObject) parser.parse(getJsonSoundAction()); //Sound action json
 				    		    
 		postRequest.addHeader("content-type", "application/json");
 

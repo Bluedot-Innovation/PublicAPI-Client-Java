@@ -37,11 +37,11 @@ public class UpdateSoundAction extends BDCommon
 		HttpPost postRequest = new HttpPost(bdRestUrl);
   
 	    JSONParser parser    = new JSONParser();
-	    JSONObject bdMessageActionJSONObject = (JSONObject) parser.parse(getJsonSoundAction()); //message action json
+	    JSONObject bdSoundActionJSONObject = (JSONObject) parser.parse(getJsonSoundAction()); //Sound action json
 				    		    
 		postRequest.addHeader("content-type", "application/json");
 
-		postRequest.setEntity(new StringEntity(bdMessageActionJSONObject.toJSONString()));
+		postRequest.setEntity(new StringEntity(bdSoundActionJSONObject.toJSONString()));
 	 
 	    HttpResponse response = httpRestClient.execute(postRequest);
 	    	    	    
