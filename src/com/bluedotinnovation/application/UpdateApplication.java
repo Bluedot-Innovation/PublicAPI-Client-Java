@@ -2,6 +2,7 @@ package com.bluedotinnovation.application;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.Charset;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -62,7 +63,7 @@ public class UpdateApplication extends BDCommon{
 
 		postRequest.addHeader("content-type", "application/json");
 
-		postRequest.setEntity(new StringEntity(bdApplicationJSONObject.toJSONString()));
+		postRequest.setEntity(new StringEntity(bdApplicationJSONObject.toJSONString(), Charset.defaultCharset()));
 	 
 	    HttpResponse response = httpRestClient.execute(postRequest);
         if (response.getStatusLine().getStatusCode() == 200)

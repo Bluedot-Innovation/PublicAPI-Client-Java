@@ -4,6 +4,7 @@
 package com.bluedotinnovation.action;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.Charset;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -42,7 +43,7 @@ public class AddVibrationActionWithConditions extends BDCommon
 					    		    
 			postRequest.addHeader("content-type", "application/json");
 
-			postRequest.setEntity(new StringEntity(bdVibrationActionJSONObject.toJSONString()));
+			postRequest.setEntity(new StringEntity(bdVibrationActionJSONObject.toJSONString(), Charset.defaultCharset()));
 		 
 		    HttpResponse response = httpRestClient.execute(postRequest);
 		    	    	    

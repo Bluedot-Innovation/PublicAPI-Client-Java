@@ -5,6 +5,8 @@ package com.bluedotinnovation.fence;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.Charset;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -50,7 +52,7 @@ public class AddFence extends BDCommon
    	    JSONObject bdPolygonalFenceJSONObject = (JSONObject) parser.parse(getJsonPolygonalFence()); //add a polygonal fence
    				    		    
    		postRequest.addHeader("content-type", "application/json");
-		postRequest.setEntity(new StringEntity(bdPolygonalFenceJSONObject.toJSONString()));
+		postRequest.setEntity(new StringEntity(bdPolygonalFenceJSONObject.toJSONString(), Charset.defaultCharset()));
 	 
 	    HttpResponse response = httpRestClient.execute(postRequest);
 	    	    	    
