@@ -41,10 +41,15 @@ public class AddApplication extends BDCommon
 		CloseableHttpClient httpRestClient  = HttpClientBuilder.create().build();
 		
 		HttpPost postRequest = new HttpPost(bdRestUrl);
-		String application = "{ \"security\": {\"customerApiKey\":" +"\"" +bdCustomerApiKey + "\"" +"}," +
-		    "\"content\": {\"application\" : {\"name\" : \"Java-Test Application-After-Create\", \"packageName\": \"au.com.bluedot.creationtestbd\"," +
-		    "\"nextRuleUpdateInterval\": 1000, \"lastUpdateTime\":"  + "\"" +new Date()+ "\"" + "," +
-		    "\"creationTime\":"  + "\"" +new Date()+ "\"" + ",\"status\": \"ACTIVE\",\"enableDataAnonymisation\": \"false\",\"nextRuleUpdateIntervalFormatted\": \"00:05\",\"apiKey\" : \"none\"}}}";
+		String application = "{ \"security\": "+
+				"{\"customerApiKey\":" +"\"" +bdCustomerApiKey + "\"" +
+				"}," +
+				"\"content\": "+
+					"{\"application\" : "+
+						"{\"name\" :" +"\"Java-Test Application-After-Create\"," +
+						"\"packageName\":" +"\"au.com.bluedot.creationtestbd\"," +
+						"\"nextRuleUpdateIntervalFormatted\":" +"\"00:10\"" +
+						"}}}";
 			
 		
 	    JSONObject bdApplicationJSONObject;	    
