@@ -2,12 +2,18 @@ package com.bluedotinnovation.application;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 
 import com.bluedotinnovation.common.BDCommon;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.conn.ssl.SSLSocketFactory;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -17,13 +23,13 @@ import org.json.simple.parser.ParseException;
  * Delete Application REST client demonstrates deleting an application using Apache HTTP client libraries
  */
 public class DeleteApplication extends BDCommon{
-    public static void main(String[] args) throws ParseException, IOException{
-        String customerApiKey = "0cbfd210-9544-11e4-b884-402cf464abb8";
-        String applicationId  = "7b45e5b1-4464-43ae-902b-34fcb63d8a7b";
+    public static void main(String[] args) throws ParseException, IOException, KeyManagementException, NoSuchAlgorithmException{
+        String customerApiKey = "7cd1ea80-d40e-11e4-84cb-b8ca3a6b879d";
+        String applicationId  = "7acadbf2-4424-4d3b-b4ec-98fad0a6618b";
         String url            = "https://api.bluedotinnovation.com/1/applications?customerApiKey="+customerApiKey+"&applicationId=" + applicationId;
-        HttpClient client     = new DefaultHttpClient();
+        CloseableHttpClient httpRestClient = HttpClients.custom().setSSLSocketFactory(new SSLSocketFactory(getSSLContext())).build();
         HttpDelete request    = new HttpDelete(url);
-        HttpResponse response = client.execute(request);
+        HttpResponse response = httpRestClient.execute(request);
         JSONParser parser     = new JSONParser();
 
         if (response.getStatusLine().getStatusCode() == 200) {

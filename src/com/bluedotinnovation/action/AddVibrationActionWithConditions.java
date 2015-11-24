@@ -5,12 +5,16 @@ package com.bluedotinnovation.action;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -32,37 +36,37 @@ public class AddVibrationActionWithConditions extends BDCommon
      private static String bdZoneId            = "b80e50eb-b9f9-4ed5-966e-4b2e39cc0549"; //This is the id of the zone being updated. This can be fetched by calling zones/getAll API
 
      
-	public static void main(String[] args) throws IOException, ParseException
+	public static void main(String[] args) throws IOException, ParseException, KeyManagementException, NoSuchAlgorithmException
 	{		
-		 CloseableHttpClient httpRestClient  = HttpClientBuilder.create().build();
+		CloseableHttpClient httpRestClient = HttpClients.custom().setSSLSocketFactory(new SSLSocketFactory(getSSLContext())).build();
 			
-			HttpPost postRequest = new HttpPost(bdRestUrl);
-	  
-		    JSONParser parser    = new JSONParser();
-		    JSONObject bdVibrationActionJSONObject = (JSONObject) parser.parse(getJsonVibrationActionWithConditions()); //Vibration action with conditions json
-					    		    
-			postRequest.addHeader("content-type", "application/json");
+		HttpPost postRequest = new HttpPost(bdRestUrl);
+  
+	    JSONParser parser    = new JSONParser();
+	    JSONObject bdVibrationActionJSONObject = (JSONObject) parser.parse(getJsonVibrationActionWithConditions()); //Vibration action with conditions json
+				    		    
+		postRequest.addHeader("content-type", "application/json");
 
-			postRequest.setEntity(new StringEntity(bdVibrationActionJSONObject.toJSONString(), Charset.defaultCharset()));
-		 
-		    HttpResponse response = httpRestClient.execute(postRequest);
-		    	    	    
-	        if (response.getStatusLine().getStatusCode() == 200)
-	        {
-	        	System.out.println("Vibration Action with conditions was added successfully");
-	        	InputStream inputStream = response.getEntity().getContent();
-	        	byte[] bytes            = readStream(inputStream);
-	        	String resultString     = new String(bytes); //json result
-	        	JSONObject jsonResult   = (JSONObject)  parser.parse(resultString);
-	        	System.out.println(jsonResult);
-	        }
-	        else 
-	        {
-	        	InputStream inputStream = response.getEntity().getContent();
-	        	byte[] bytes            = readStream(inputStream);
-	        	String resultString     = new String(bytes); //json error result
-	        	System.out.println(resultString);
-	        }			
+		postRequest.setEntity(new StringEntity(bdVibrationActionJSONObject.toJSONString(), Charset.defaultCharset()));
+	 
+	    HttpResponse response = httpRestClient.execute(postRequest);
+	    	    	    
+        if (response.getStatusLine().getStatusCode() == 200)
+        {
+        	System.out.println("Vibration Action with conditions was added successfully");
+        	InputStream inputStream = response.getEntity().getContent();
+        	byte[] bytes            = readStream(inputStream);
+        	String resultString     = new String(bytes); //json result
+        	JSONObject jsonResult   = (JSONObject)  parser.parse(resultString);
+        	System.out.println(jsonResult);
+        }
+        else 
+        {
+        	InputStream inputStream = response.getEntity().getContent();
+        	byte[] bytes            = readStream(inputStream);
+        	String resultString     = new String(bytes); //json error result
+        	System.out.println(resultString);
+        }			
 	}
 	
 

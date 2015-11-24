@@ -6,12 +6,16 @@ package com.bluedotinnovation.action;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -31,9 +35,9 @@ public class UpdateSoundAction extends BDCommon
 	private static String bdZoneId            = "24d9a245-2087-421b-9972-2af2ee0970f1"; //This is the id of the zone being updated. This can be fetched by calling zones/getAll API
 	private static String actionId            = "6de96865-f3c8-42cf-bdc2-38027272770a"; //This is the id of the action being updated. This can be fetch by calling zones/get?id=yourzoneid
 	
-	public static void main(String[] args) throws ParseException,  IOException
+	public static void main(String[] args) throws ParseException,  IOException, KeyManagementException, NoSuchAlgorithmException
 	{
-        CloseableHttpClient httpRestClient  = HttpClientBuilder.create().build();
+		CloseableHttpClient httpRestClient = HttpClients.custom().setSSLSocketFactory(new SSLSocketFactory(getSSLContext())).build();
 		
 		HttpPost postRequest = new HttpPost(bdRestUrl);
   

@@ -5,13 +5,17 @@ package com.bluedotinnovation.beacon;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -30,10 +34,12 @@ public class AddBeacon extends BDCommon{
 	 * @throws IOException 
 	 * @throws ClientProtocolException 
 	 * @throws ParseException 
+	 * @throws NoSuchAlgorithmException 
+	 * @throws KeyManagementException 
 	 */
-	public static void main(String[] args) throws ParseException, ClientProtocolException, IOException{
+	public static void main(String[] args) throws ParseException, ClientProtocolException, IOException, KeyManagementException, NoSuchAlgorithmException{
 		
-		CloseableHttpClient httpRestClient  = HttpClientBuilder.create().build();
+		CloseableHttpClient httpRestClient = HttpClients.custom().setSSLSocketFactory(new SSLSocketFactory(getSSLContext())).build();
 		HttpPost postRequest = new HttpPost(bdRestUrl);
 		
 		JSONParser parser    = new JSONParser();

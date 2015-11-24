@@ -3,6 +3,14 @@ package com.bluedotinnovation.common;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.cert.X509Certificate;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 public abstract class BDCommon 
 {	
@@ -27,6 +35,30 @@ public abstract class BDCommon
         {
             byteStream.close();
         }
+    }
+	
+	public static SSLContext getSSLContext() throws NoSuchAlgorithmException, KeyManagementException
+    {
+        SSLContext sslContext = SSLContext.getInstance("SSL");
+        sslContext.init(null, new TrustManager[] { new X509TrustManager() 
+        {
+           public X509Certificate[] getAcceptedIssuers() 
+           {
+                   return null;
+           }
+
+           public void checkClientTrusted(X509Certificate[] certs,
+                           String authType) 
+           {
+           }
+
+           public void checkServerTrusted(X509Certificate[] certs,
+                           String authType) 
+           {
+           }
+      } }, new SecureRandom());
+        
+        return sslContext;
     }
 
 }

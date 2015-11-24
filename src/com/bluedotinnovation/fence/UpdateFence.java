@@ -4,12 +4,16 @@ package com.bluedotinnovation.fence;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -35,9 +39,9 @@ public class UpdateFence extends BDCommon
     private static String bdPolygonalFenceId   = "176c84a3-80bc-4594-a858-ce9fe3489d22"; //This is the id of the fence being updated. This can be fetched by calling zones/get API
     
     
-	public static void main(String[] args) throws IOException, ParseException
+	public static void main(String[] args) throws IOException, ParseException, KeyManagementException, NoSuchAlgorithmException
 	{
-        CloseableHttpClient httpRestClient  = HttpClientBuilder.create().build();
+		CloseableHttpClient httpRestClient = HttpClients.custom().setSSLSocketFactory(new SSLSocketFactory(getSSLContext())).build();
 		
 		HttpPost postRequest = new HttpPost(bdRestUrl);
   

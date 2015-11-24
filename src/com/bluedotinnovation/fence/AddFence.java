@@ -6,12 +6,17 @@ package com.bluedotinnovation.fence;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -36,47 +41,44 @@ public class AddFence extends BDCommon
 	
 	/**
 	 * @param args
+	 * @throws ClientProtocolException 
 	 * @throws IOException 
+	 * @throws NoSuchAlgorithmException 
+	 * @throws KeyManagementException 
 	 * @throws ParseException
 	 */
-	public static void main(String[] args)
+	public static void main(String[] args) throws ClientProtocolException, IOException, KeyManagementException, NoSuchAlgorithmException, ParseException
 	{
 		
-
-       try {
-   		CloseableHttpClient httpRestClient  = HttpClientBuilder.create().build();
-		
-   		HttpPost postRequest = new HttpPost(bdRestUrl);
-     
-   	    JSONParser parser    = new JSONParser();
-   	    JSONObject bdPolygonalFenceJSONObject = (JSONObject) parser.parse(getJsonPolygonalFence()); //add a polygonal fence
-   				    		    
-   		postRequest.addHeader("content-type", "application/json");
-		postRequest.setEntity(new StringEntity(bdPolygonalFenceJSONObject.toJSONString(), Charset.defaultCharset()));
-	 
-	    HttpResponse response = httpRestClient.execute(postRequest);
-	    	    	    
-        if (response.getStatusLine().getStatusCode() == 200)
-        {
-        	System.out.println("Fence was successfully created");
-        	InputStream inputStream = response.getEntity().getContent();
-        	byte[] bytes            = readStream(inputStream);
-        	String resultString     = new String(bytes); //json result
-        	JSONObject jsonResult   = (JSONObject)  parser.parse(resultString);
-        	System.out.println(jsonResult);
-        }
-        else 
-        {
-        	InputStream inputStream = response.getEntity().getContent();
-        	byte[] bytes            = readStream(inputStream);
-        	String resultString     = new String(bytes); //json error result
-        	System.out.println(resultString);
-        }		
-       }
-       catch (Exception ex)
-       {
-    	   System.out.println(ex.toString());
-       }
+	    	CloseableHttpClient httpRestClient = HttpClients.custom().setSSLSocketFactory(new SSLSocketFactory(getSSLContext())).build();
+			
+	   		HttpPost postRequest = new HttpPost(bdRestUrl);
+	     
+	   	    JSONParser parser    = new JSONParser();
+	   	    JSONObject bdPolygonalFenceJSONObject = (JSONObject) parser.parse(getJsonPolygonalFence()); //add a polygonal fence
+	   				    		    
+	   		postRequest.addHeader("content-type", "application/json");
+			postRequest.setEntity(new StringEntity(bdPolygonalFenceJSONObject.toJSONString(), Charset.defaultCharset()));
+		 
+		    HttpResponse response = httpRestClient.execute(postRequest);
+		    	    	    
+	        if (response.getStatusLine().getStatusCode() == 200)
+	        {
+	        	System.out.println("Fence was successfully created");
+	        	InputStream inputStream = response.getEntity().getContent();
+	        	byte[] bytes            = readStream(inputStream);
+	        	String resultString     = new String(bytes); //json result
+	        	JSONObject jsonResult   = (JSONObject)  parser.parse(resultString);
+	        	System.out.println(jsonResult);
+	        }
+	        else 
+	        {
+	        	InputStream inputStream = response.getEntity().getContent();
+	        	byte[] bytes            = readStream(inputStream);
+	        	String resultString     = new String(bytes); //json error result
+	        	System.out.println(resultString);
+	        }		
+       
 	}
 	
 	
