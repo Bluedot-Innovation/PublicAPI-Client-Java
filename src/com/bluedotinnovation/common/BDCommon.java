@@ -42,17 +42,20 @@ public abstract class BDCommon
         SSLContext sslContext = SSLContext.getInstance("SSL");
         sslContext.init(null, new TrustManager[] { new X509TrustManager() 
         {
-           public X509Certificate[] getAcceptedIssuers() 
+           @Override
+		public X509Certificate[] getAcceptedIssuers() 
            {
                    return null;
            }
 
-           public void checkClientTrusted(X509Certificate[] certs,
+           @Override
+		public void checkClientTrusted(X509Certificate[] certs,
                            String authType) 
            {
            }
 
-           public void checkServerTrusted(X509Certificate[] certs,
+           @Override
+		public void checkServerTrusted(X509Certificate[] certs,
                            String authType) 
            {
            }

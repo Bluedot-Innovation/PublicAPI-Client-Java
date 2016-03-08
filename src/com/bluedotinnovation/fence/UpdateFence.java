@@ -12,7 +12,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -37,7 +36,7 @@ public class UpdateFence extends BDCommon
     private static String bdCircularFenceId    = "21b6874b-032d-4002-b6e0-baf4ac52ab9c"; //This is the id of the fence being updated. This can be fetched by calling zones/get API
     private static String bdBoundingBoxFenceId = "c24379c7-2268-406b-9262-bc58ba61caac"; //This is the id of the fence being updated. This can be fetched by calling zones/get API
     private static String bdPolygonalFenceId   = "176c84a3-80bc-4594-a858-ce9fe3489d22"; //This is the id of the fence being updated. This can be fetched by calling zones/get API
-    
+    private static String bdGeolineId   		= "276c84a3-80bc-4594-a858-ce9fe3489d42"; //This is the id of the fence being updated. This can be fetched by calling zones/get API
     
 	public static void main(String[] args) throws IOException, ParseException, KeyManagementException, NoSuchAlgorithmException
 	{
@@ -204,4 +203,65 @@ public class UpdateFence extends BDCommon
         return polygonalFenceJson;
     }
     
+    /*Geoline requires a series points in lat/long*/
+    private static String getJsonGeoline()
+    {
+        String geolioneJson =
+                       "{" +
+                           "\"security\": {" +
+                               "\"apiKey\":" + "\"" + bdApplicationApiKey + "\"," +
+                               "\"customerApiKey\":" + "\"" + bdCustomerApiKey + "\" " +
+                        "}," +
+                        "\"content\": {" +
+                            "\"zone\": {" +
+                                "\"zoneId\":" + "\"" + bdZoneId + "\"," +
+                                "\"fences\": {" +
+                                "\"Plylines\": [" +
+                                    "{" +
+                                        "\"fenceId\":" + "\"" + bdGeolineId + "\"," +
+                                        "\"name\": \"Geoline-Balendran\"," +
+                                        "\"color\": \"#000ffff\"," +
+                                        "\"vertices\": [" +
+                                             "{" +
+                                                 "\"latitude\": -37.818717," +
+                                                 "\"longitude\": 144.983085" +
+                                             "}," +
+                                             "{" +
+                                                "\"latitude\": -37.819540," +
+                                                "\"longitude\": 144.982125" +
+                                             "}," +
+                                             "{" +
+                                                "\"latitude\": -37.820298," +
+                                                "\"longitude\": 144.985178" +
+                                             "}," +
+                                             "{" +
+                                             "\"latitude\": \"-37.818780\","+
+                                             "\"longitude\": \"144.980734\" "+
+                                             "}," +
+                                             "{" +
+                                                "\"latitude\": -37.818768," +
+                                                "\"longitude\": 144.984330" +
+                                             "}," +
+                                             "{" +
+                                                "\"latitude\": -37.819476," +
+                                                "\"longitude\": 144.985033" +
+                                             "}," +
+                                             "{" +
+                                                "\"latitude\": -37.820527," +
+                                                "\"longitude\": 144.982978" +
+                                             "}," +
+                                             "{" +
+                                                "\"latitude\": -37.818887," +
+                                                "\"longitude\": 144.982587" +
+                                             "}" +
+                                        "]" +
+                                    "}" +
+                                "]" +
+                            "}" +
+                        "}" +
+                     "}" +
+                "}";
+        
+        return geolioneJson;
+    }   
 }

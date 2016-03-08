@@ -11,7 +11,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -25,7 +24,7 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * @author Bluedot Innovation
- * Add application java client demonstrates adding an application to your Bluedot backend using Apache HTTP client and JSON Simple libraries.
+ * Update Beacon java client demonstrates adding a beacon to your Bluedot backend using Apache HTTP client and JSON Simple libraries.
  */
 public class UpdateBeacon extends BDCommon
 {

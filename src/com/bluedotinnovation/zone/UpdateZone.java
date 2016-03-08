@@ -14,7 +14,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -82,6 +81,7 @@ public class UpdateZone extends BDCommon
                "\"zoneId\":" + "\"" + bdZoneId + "\"" +
                "\"zoneName\": \"First Test Bluedot Zone-Updated\"," +
                "\"minimumRetriggerTime\": \"11:11\"," +
+               "\"enableCheckout\": true," +
                "\"timeActive\" : {" +
                    "\"from\": {" +
                        "\"time\": \"06:00\"," +

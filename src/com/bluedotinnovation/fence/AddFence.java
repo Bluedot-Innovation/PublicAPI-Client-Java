@@ -15,7 +15,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -215,5 +214,65 @@ public class AddFence extends BDCommon
 				     "}" +
 				"}";							
 		return polygonalFenceJson;
+	}
+	
+	/*Geoline fence requires a series points in lat/long*/
+	private static String getJsonGeoline()
+	{
+		String GeolineJson = 
+				       "{" +
+				           "\"security\": {" +
+				              "\"apiKey\":" + "\"" + bdApplicationApiKey + "\"," +
+				              "\"customerApiKey\":" + "\"" + bdCustomerApiKey + "\" " +
+				        "}," + 
+				        "\"content\": {" +
+				            "\"zone\": {" +
+				                "\"zoneId\":" + "\"" + bdZoneId + "\"," +	
+				                "\"fences\": {" +
+				                "\"polylines\": [" +
+				                    "{" +
+				                        "\"name\": \"Polygon-Balendran-Pre-Update\"," +
+				                        "\"color\": \"#000ffff\"," +
+				                        "\"vertices\": [" +
+				                             "{" +
+				                                 "\"latitude\": -37.818717," +
+				                                 "\"longitude\": 144.983085" +
+				                             "},"+
+				                             "{" +
+				                                "\"latitude\": -37.819540," +
+				                                "\"longitude\": 144.982125" +
+				                             "}," +
+				                             "{"  +
+				                                "\"latitude\": -37.820298," +
+				                                "\"longitude\": 144.985178" +
+				                             "}," + 
+				                             "{" +
+				                                "\"latitude\": -37.820468," +
+				                                "\"longitude\": 144.984228" +
+				                             "}," +
+				                             "{" +
+				                                "\"latitude\": -37.818768," +
+				                                "\"longitude\": 144.984330" +
+				                             "}," +
+				                             "{" +
+				                                "\"latitude\": -37.819476," +
+				                                "\"longitude\": 144.985033" +
+				                             "}," +
+				                             "{" +
+				                                "\"latitude\": -37.820527," +
+				                                "\"longitude\": 144.982978" +
+				                             "}," +
+				                             "{"  +
+				                                "\"latitude\": -37.818887," +
+				                                "\"longitude\": 144.982587" +
+				                             "}" +
+				                        "]" +
+				                    "}" +
+				                "]" +
+				            "}" +
+				        "}"+
+				     "}" +
+				"}";							
+		return GeolineJson;
 	}
 }
