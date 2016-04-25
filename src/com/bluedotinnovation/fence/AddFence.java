@@ -106,7 +106,7 @@ public class AddFence extends BDCommon
                 "\"fences\": {" +
                     "\"circles\": [" +
                         "{"+
-                            "\"name\": \"Circular fence-added by Emil\","+
+                            "\"name\": \"Circle-1\","+
                             "\"color\": \"#000ffff\","+
                             "\"radius\": \"30.330384237225\","+
                             "\"center\": {"+
@@ -171,7 +171,7 @@ public class AddFence extends BDCommon
 				                "\"fences\": {" +
 				                "\"polygons\": [" +
 				                    "{" +
-				                        "\"name\": \"Polygon-Balendran-Pre-Update\"," +
+				                        "\"name\": \"Polygon-1\"," +
 				                        "\"color\": \"#000ffff\"," +
 				                        "\"vertices\": [" +
 				                             "{" +
@@ -231,7 +231,7 @@ public class AddFence extends BDCommon
 				                "\"fences\": {" +
 				                "\"polylines\": [" +
 				                    "{" +
-				                        "\"name\": \"Polygon-Balendran-Pre-Update\"," +
+				                        "\"name\": \"Geoline-1\"," +
 				                        "\"color\": \"#000ffff\"," +
 				                        "\"vertices\": [" +
 				                             "{" +

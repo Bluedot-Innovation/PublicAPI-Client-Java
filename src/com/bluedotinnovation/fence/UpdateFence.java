@@ -89,7 +89,7 @@ public class UpdateFence extends BDCommon
                      "\"circles\": [" +
                          "{" +
                              "\"fenceId\":" + "\"" + bdCircularFenceId + "\"," +
-                             "\"name\": \"Circular fence-added by Emil and Updated through public api\"," +
+                             "\"name\": \"Circular fence-Updated through public api\"," +
                              "\"color\": \"#000ffff\"," +
                              "\"radius\": \"200.330384237225\"," +
                              "\"center\": {" +
@@ -121,7 +121,7 @@ public class UpdateFence extends BDCommon
                         "\"rectangles\": [" +
                             "{" +
                                "\"fenceId\":" + "\"" + bdBoundingBoxFenceId + "\"," +
-                                "\"name\": \"Bounding Box-1\"," +
+                                "\"name\": \"Bounding Box-1-Updated\"," +
                                 "\"color\": \"#3559e\"," +
                                 "\"northEast\": {" +
                                     "\"latitude\": -37.81544591805361," +
@@ -157,7 +157,7 @@ public class UpdateFence extends BDCommon
                                 "\"polygons\": [" +
                                     "{" +
                                         "\"fenceId\":" + "\"" + bdPolygonalFenceId + "\"," +
-                                        "\"name\": \"Polygon-Balendran\"," +
+                                        "\"name\": \"Polygon-1-Updated\"," +
                                         "\"color\": \"#000ffff\"," +
                                         "\"vertices\": [" +
                                              "{" +
@@ -219,7 +219,7 @@ public class UpdateFence extends BDCommon
                                 "\"Plylines\": [" +
                                     "{" +
                                         "\"fenceId\":" + "\"" + bdGeolineId + "\"," +
-                                        "\"name\": \"Geoline-Balendran\"," +
+                                        "\"name\": \"Geoline-1-Updated\"," +
                                         "\"color\": \"#000ffff\"," +
                                         "\"vertices\": [" +
                                              "{" +
