@@ -110,8 +110,8 @@ public class AddFence extends BDCommon
                             "\"color\": \"#000ffff\","+
                             "\"radius\": \"30.330384237225\","+
                             "\"center\": {"+
-                                "\"latitude\": \"-37.818780\","+
-                                "\"longitude\": \"144.980734\" "+
+                                "\"latitude\": -37.818780,"+
+                                "\"longitude\": 144.980734 "+
                             "}"+
                         "}" +
                     "]" +

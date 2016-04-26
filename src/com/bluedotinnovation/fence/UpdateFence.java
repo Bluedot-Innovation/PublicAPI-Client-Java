@@ -93,8 +93,8 @@ public class UpdateFence extends BDCommon
                              "\"color\": \"#000ffff\"," +
                              "\"radius\": \"200.330384237225\"," +
                              "\"center\": {" +
-                                        "\"latitude\": \"-37.818780\","+
-                                        "\"longitude\": \"144.980734\" "+
+                                        "\"latitude\": -37.818780,"+
+                                        "\"longitude\": 144.980734"+
                              "}" +
                          "}" +
                      "]" +
@@ -173,8 +173,8 @@ public class UpdateFence extends BDCommon
                                                 "\"longitude\": 144.985178" +
                                              "}," +
                                              "{" +
-                                             "\"latitude\": \"-37.818780\","+
-                                             "\"longitude\": \"144.980734\" "+
+                                             "\"latitude\": -37.818780,"+
+                                             "\"longitude\": 144.980734"+
                                              "}," +
                                              "{" +
                                                 "\"latitude\": -37.818768," +
@@ -235,8 +235,8 @@ public class UpdateFence extends BDCommon
                                                 "\"longitude\": 144.985178" +
                                              "}," +
                                              "{" +
-                                             "\"latitude\": \"-37.818780\","+
-                                             "\"longitude\": \"144.980734\" "+
+                                             "\"latitude\": -37.818780,"+
+                                             "\"longitude\": 144.980734"+
                                              "}," +
                                              "{" +
                                                 "\"latitude\": -37.818768," +

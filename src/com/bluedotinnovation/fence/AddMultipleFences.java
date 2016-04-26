@@ -91,8 +91,8 @@ public class AddMultipleFences extends BDCommon
                              "\"color\": \"#000fff\"," +
                              "\"radius\": 20.235," +
                              "\"center\": {" +
-                                 "\"latitude\": \"-37.818326\"," +
-                                 "\"longitude\": \"144.979318\" " +
+                                 "\"latitude\": -37.818326," +
+                                 "\"longitude\": 144.979318" +
                              "}" +
                          "}," +
                          "{" +
@@ -100,8 +100,8 @@ public class AddMultipleFences extends BDCommon
                              "\"color\": \"#000fff\"," +
                              "\"radius\": 30," +
                              "\"center\": {" +
-                                 "\"latitude\": \"37.8164587537386\"," +
-                                 "\"longitude\": \"144.978997707366\" " +
+                                 "\"latitude\": 37.8164587537386," +
+                                 "\"longitude\": 144.978997707366" +
                              "}" +
                          "}" +
                      "]," +
