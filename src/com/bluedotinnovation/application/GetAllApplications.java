@@ -24,11 +24,11 @@ public class GetAllApplications extends BDCommon
 
 	public static void main(String[] args) throws IOException, KeyManagementException, NoSuchAlgorithmException 
 	{
-		String customerApiKey = "7cd1ea80-d40e-11e4-84cb-b8ca3a6b879d";
-		String url            = "https://api.bluedotinnovation.com/1/applications?customerApiKey=" + customerApiKey;
+		String bdCustomerApiKey = "7cd1ea80-d40e-11e4-84cb-b8ca3a6b879d";
+		String bdRestUrl            = "https://api.bluedotinnovation.com/1/applications?customerApiKey=" + bdCustomerApiKey;
 
 		CloseableHttpClient httpRestClient = HttpClients.custom().setSSLSocketFactory(new SSLSocketFactory(getSSLContext())).build();
-		HttpGet request       = new HttpGet(url);
+		HttpGet request       = new HttpGet(bdRestUrl);
 		HttpResponse response = httpRestClient.execute(request);
 		BufferedReader rd     = new BufferedReader (new InputStreamReader(response.getEntity().getContent()));
 		String line           = "";

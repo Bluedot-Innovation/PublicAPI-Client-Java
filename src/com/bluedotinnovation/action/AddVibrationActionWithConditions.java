@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.bluedotinnovation.action;
 
 import java.io.IOException;

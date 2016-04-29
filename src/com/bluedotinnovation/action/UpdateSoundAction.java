@@ -23,7 +23,7 @@ import com.bluedotinnovation.common.BDCommon;
 
 /**
  * @author Bluedot Innovation
- * Update MessageAction REST client demonstrates updating a sound action to an existing zone using JSON simple and Apache HTTP client libraries
+ * Update SoundAction REST client demonstrates updating a sound action to an existing zone using JSON simple and Apache HTTP client libraries
  */
 public class UpdateSoundAction extends BDCommon
 {
@@ -81,7 +81,18 @@ public class UpdateSoundAction extends BDCommon
 	                        "\"soundActions\": [" +
 	                            "{" +
 	                                "\"actionId\":"+ "\"" + actionId +"\"," +
-	                                "\"name\": \"A Sound action updated\"" +
+	                                "\"conditions\": {" +
+	                                    "\"timeActive\": [{" +
+	                                        "\"from\": {" +
+	                                            "\"time\": \"06:01\"," +
+	                                            "\"period\": \"am\" " +
+	                                        "}," +
+	                                        "\"to\": {" +
+	                                            "\"time\": \"11:00\"," +
+	                                            "\"period\": \"pm\" " +
+	                                        "}" +
+	                                    "}]" +
+	                                "}" +
 	                            "}" +
 	                        "]" +
 	                    "}" +

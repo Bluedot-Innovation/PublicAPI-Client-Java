@@ -18,16 +18,19 @@ import org.json.simple.parser.ParseException;
 
 /**
  * @author Bluedot Innovation
- * Delete Ation REST client demonstrates deleting an action using Apache HTTP client libraries
+ * Delete Action REST client demonstrates deleting an action using Apache HTTP client libraries
  */
 public class DeleteAction extends BDCommon{
     public static void main(String[] args) throws ParseException, IOException, KeyManagementException, NoSuchAlgorithmException{
-        String customerApiKey = "0cbfd210-9544-11e4-b884-402cf464abb8";
-        String zoneId         = "d6c3b688-cf2e-4aac-b76b-b29f371f448e";
-        String actionId       = "8613a1ed-e1bd-4017-9bac-37100ebb4e00";
-        String url            = "https://api.bluedotinnovation.com/1/actions?customerApiKey="+customerApiKey+"&zoneId=" + zoneId + "&actionId=" + actionId;
+        
+    	String bdCustomerApiKey = "0cbfd210-9544-11e4-b884-402cf464abb8";
+        String bdApiKey		  	= "d3161e80-38d1-11e4-b039-bc305bf60831";
+        String bdZoneId         = "d6c3b688-cf2e-4aac-b76b-b29f371f448e";
+        String bdActionId       = "8613a1ed-e1bd-4017-9bac-37100ebb4e00";
+        String bdRestUrl            	= "https://api.bluedotinnovation.com/1/actions?customerApiKey="+ bdCustomerApiKey + "&apiKey=" + bdApiKey +"&zoneId=" + bdZoneId + "&actionId=" + bdActionId;
+        
         CloseableHttpClient httpRestClient = HttpClients.custom().setSSLSocketFactory(new SSLSocketFactory(getSSLContext())).build();
-        HttpDelete request    = new HttpDelete(url);
+        HttpDelete request    = new HttpDelete(bdRestUrl);
         HttpResponse response = httpRestClient.execute(request);
         JSONParser parser     = new JSONParser();
 

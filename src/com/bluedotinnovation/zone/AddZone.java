@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.bluedotinnovation.zone;
 import java.io.IOException;
 import java.io.InputStream;

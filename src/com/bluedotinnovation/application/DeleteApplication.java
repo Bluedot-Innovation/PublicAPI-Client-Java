@@ -22,11 +22,12 @@ import org.json.simple.parser.ParseException;
  */
 public class DeleteApplication extends BDCommon{
     public static void main(String[] args) throws ParseException, IOException, KeyManagementException, NoSuchAlgorithmException{
-        String customerApiKey = "7cd1ea80-d40e-11e4-84cb-b8ca3a6b879d";
-        String applicationId  = "7acadbf2-4424-4d3b-b4ec-98fad0a6618b";
-        String url            = "https://api.bluedotinnovation.com/1/applications?customerApiKey="+customerApiKey+"&applicationId=" + applicationId;
+        String bdCustomerApiKey = "7cd1ea80-d40e-11e4-84cb-b8ca3a6b879d";
+        String bdApplicationId  = "7acadbf2-4424-4d3b-b4ec-98fad0a6618b";
+        String bdRestUrl            = "https://api.bluedotinnovation.com/1/applications?customerApiKey="+bdCustomerApiKey+"&applicationId=" + bdApplicationId;
+        
         CloseableHttpClient httpRestClient = HttpClients.custom().setSSLSocketFactory(new SSLSocketFactory(getSSLContext())).build();
-        HttpDelete request    = new HttpDelete(url);
+        HttpDelete request    = new HttpDelete(bdRestUrl);
         HttpResponse response = httpRestClient.execute(request);
         JSONParser parser     = new JSONParser();
 
