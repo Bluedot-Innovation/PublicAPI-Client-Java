@@ -37,31 +37,18 @@ public abstract class BDCommon
         }
     }
 	
-	public static SSLContext getSSLContext() throws NoSuchAlgorithmException, KeyManagementException
-    {
-        SSLContext sslContext = SSLContext.getInstance("SSL");
-        sslContext.init(null, new TrustManager[] { new X509TrustManager() 
-        {
-           @Override
-		public X509Certificate[] getAcceptedIssuers() 
-           {
-                   return null;
-           }
+     public static SSLConnectionSocketFactory getSSLContextFactory() throws NoSuchAlgorithmException, KeyManagementException
+     {
+        SSLContext sslContext         = SSLContexts.custom()
+			    .useTLS()
+			    .build();
 
-           @Override
-		public void checkClientTrusted(X509Certificate[] certs,
-                           String authType) 
-           {
-           }
+			SSLConnectionSocketFactory sslContextFactory = new SSLConnectionSocketFactory(
+			    sslContext,
+			    new String[]{"TLSv1.2"},   
+			    null,
+			    SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
 
-           @Override
-		public void checkServerTrusted(X509Certificate[] certs,
-                           String authType) 
-           {
-           }
-      } }, new SecureRandom());
-        
-        return sslContext;
-    }
-
+        return sslContextFactory;
+     }
 }
