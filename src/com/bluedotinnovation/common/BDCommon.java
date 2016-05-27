@@ -28,9 +28,10 @@ public abstract class BDCommon {
         }
     }
 	
-	public static SSLConnectionSocketFactory getSSLContextFactory() throws NoSuchAlgorithmException, KeyManagementException {
-		SSLContext sslContext = SSLContexts.custom()
-				.useTLS()
+   public static SSLConnectionSocketFactory getSSLContextFactory() throws NoSuchAlgorithmException, KeyManagementException
+     {
+        SSLContext sslContext         = SSLContexts.custom()
+			    .useTLS()
 			    .build();
 
 		SSLConnectionSocketFactory sslContextFactory = new SSLConnectionSocketFactory(
@@ -41,4 +42,5 @@ public abstract class BDCommon {
 
        return sslContextFactory;
     }
+
 }
