@@ -40,7 +40,7 @@ public class UpdateApplication extends BDCommon {
 		CloseableHttpClient httpRestClient = HttpClients.custom().setSSLSocketFactory(getSSLContextFactory()).build();
 		
 		String application =
-	               "{" +
+				"{" +
 	                 "\"security\": {" +
 	                     /*
 	                      customerApiKey is generated when customer registers first time. It is also available
@@ -50,7 +50,7 @@ public class UpdateApplication extends BDCommon {
 	               "}," +
 	               "\"content\": { " +
 	                   "\"application\" : {" +
-	                             "\"applicationId\":" + "\"" + bdApplicationId + "\"," + /*this is the id of the application as opposed to the api key. This is returned when the application/getAll is called*/
+	                             "\"applicationId\":" + "\"" + bdApplicationId + "\"," + /*Tthis is the id of the application as opposed to the api key. This is returned when the application/getAll is called*/
 	                             /* Time in Hour:Minute format.*/
 	                             "\"nextRuleUpdateIntervalFormatted\": \"00:10\"" +
 	                        "}" +

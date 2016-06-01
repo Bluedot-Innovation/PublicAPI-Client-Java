@@ -22,7 +22,7 @@ import com.bluedotinnovation.common.BDCommon;
  * Add application java client demonstrates adding an application to your Bluedot backend using Apache HTTP client and JSON Simple libraries.
  */
 
-public class AddApplication extends BDCommon {
+public class AddApplicationWithWebhook extends BDCommon {
     
 	private static String bdRestUrl = "https://api.bluedotinnovation.com/1/applications";
 	
@@ -39,23 +39,32 @@ public class AddApplication extends BDCommon {
 
 		CloseableHttpClient httpRestClient = HttpClients.custom().setSSLSocketFactory(getSSLContextFactory()).build();
 		
-		String application = 
-				"{" +
-					"\"security\": {" +
+		String applicationWithWebhook = 
+				"{"+
+					"\"security\": {"+
 						"\"customerApiKey\":" +"\"" +bdCustomerApiKey + "\"" +
 					"}," +
-					"\"content\": {"
-						+"\"application\" : {"+
+					"\"content\": {"+
+						"\"application\": {"+
 							"\"name\" : \"Java-Test Application-After-Create\"," +
-							"\"packageName\": \"com.bluedot.creationtestbdtestere\"," +
-							"\"nextRuleUpdateIntervalFormatted\": \"00:10\"" +
+							"\"packageName\": \"com.bluedot.creationtestbdtester\"," +
+							"\"nextRuleUpdateIntervalFormatted\": \"00:10\"," +
+							"\"webhook\": {" +
+								/*The URL of the server where the webhooks will be received.*/
+								"\"url\": \"https://api.bdtester.com/webhook/checkinreceiver\"," + 
+								"\"enabled\" : true," + 
+								/*The Security Token Key is the name of the field to be sent in the POST request header.*/
+								"\"securityTokenKey\" : \"authToken\"," +
+								/*The Security Token Value field is value of the Security Token Key field sent in the POST request header.*/
+								"\"securityTokenValue\" : \"f2f7a58c-f0d5-498c-9bad-acbc89923dc5\"" +
+							"}"+
 						"}"+
 					"}"+
 				"}";
 					
 	    JSONObject bdApplicationJSONObject;	    
 	    JSONParser parser       = new JSONParser();
-	    bdApplicationJSONObject = (JSONObject)  parser.parse(application);
+	    bdApplicationJSONObject = (JSONObject)  parser.parse(applicationWithWebhook);
 		  
 		HttpPost postRequest = new HttpPost(bdRestUrl);
 		postRequest.addHeader("content-type", "application/json");

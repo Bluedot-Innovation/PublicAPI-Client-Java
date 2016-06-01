@@ -68,7 +68,7 @@ public class UpdateZone extends BDCommon {
 	               "\"zoneId\":" + "\"" + bdZoneId + "\"" +
 	               "\"zoneName\": \"First Test Bluedot Zone-Updated\"," +
 	               "\"minimumRetriggerTime\": \"11:11\"," +
-	               "\"enableCheckout\": true," +
+	               "\"enableCheckOut\": true," +
 	               "\"timeActive\" : {" +
 	                   "\"from\": {" +
 	                       "\"time\": \"06:00\"," +
@@ -84,4 +84,22 @@ public class UpdateZone extends BDCommon {
 	   "}";
 	}
 	
+	/*Return JSON for a Zone which is active all day.*/
+	private static String getJsonZoneActiveAllDay() {
+		return "{" +
+	        "\"security\": {" +
+	                   "\"apiKey\":" + "\"" + bdApplicationApiKey + "\"," +
+	                   "\"customerApiKey\":" + "\"" + bdCustomerApiKey + "\"" +
+	       "}," +
+	      "\"content\": {" +
+	           "\"zone\": {" +
+	           	   "\"zoneId\":" + "\"" + bdZoneId + "\"" +
+	               "\"zoneName\": \"First Test Bluedot Zone-Updated\"," +
+	               "\"minimumRetriggerTime\": \"11:11\"," +
+	               "\"enableCheckOut\": true," +
+	               "\"activeAllDay\": true" +
+	           "}" +
+	       "}" +
+	   "}";
+	} 
 }
