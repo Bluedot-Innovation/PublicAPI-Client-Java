@@ -19,7 +19,8 @@ import com.bluedotinnovation.common.BDCommon;
 
 /**
  * @author Bluedot Innovation
- * Add application java client demonstrates adding an application to your Bluedot backend using Apache HTTP client and JSON Simple libraries.
+ * Copyright (c) 2016 Bluedot Innovation. All rights reserved.
+ * Add Application with Webhook client demonstrates adding an application for which a Webhook will be enabled, to your Bluedot backend using Apache HTTP client and JSON Simple libraries.
  */
 
 public class AddApplicationWithWebhook extends BDCommon {
@@ -50,12 +51,12 @@ public class AddApplicationWithWebhook extends BDCommon {
 							"\"packageName\": \"com.bluedot.creationtestbdtester\"," +
 							"\"nextRuleUpdateIntervalFormatted\": \"00:10\"," +
 							"\"webhook\": {" +
-								/*The URL of the server where the webhooks will be received.*/
+								//The URL of the server where the webhooks will be received.
 								"\"url\": \"https://api.bdtester.com/webhook/checkinreceiver\"," + 
 								"\"enabled\" : true," + 
-								/*The Security Token Key is the name of the field to be sent in the POST request header.*/
+								//The Security Token Key is the name of the field to be sent in the POST request header.
 								"\"securityTokenKey\" : \"authToken\"," +
-								/*The Security Token Value field is value of the Security Token Key field sent in the POST request header.*/
+								//The Security Token Value field is value of the Security Token Key field sent in the POST request header.
 								"\"securityTokenValue\" : \"f2f7a58c-f0d5-498c-9bad-acbc89923dc5\"" +
 							"}"+
 						"}"+

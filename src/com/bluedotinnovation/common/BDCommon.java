@@ -10,7 +10,11 @@ import javax.net.ssl.SSLContext;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLContexts;
 
-
+/**
+ * @author Bluedot Innovation
+ * Copyright (c) 2016 Bluedot Innovation. All rights reserved.
+ * BDCommon class is a utility class that provides convenient methods. 
+ */
 public abstract class BDCommon {	
 	public static byte[] readStream(InputStream stream) throws IOException {
         ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
@@ -30,7 +34,7 @@ public abstract class BDCommon {
 	
    public static SSLConnectionSocketFactory getSSLContextFactory() throws NoSuchAlgorithmException, KeyManagementException
      {
-        SSLContext sslContext         = SSLContexts.custom()
+        SSLContext sslContext = SSLContexts.custom()
 			    .useTLS()
 			    .build();
 

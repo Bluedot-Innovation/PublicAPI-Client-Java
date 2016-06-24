@@ -19,7 +19,8 @@ import com.bluedotinnovation.common.BDCommon;
 
 /**
  * @author Bluedot Innovation
- * Add application java client demonstrates adding an application to your Bluedot backend using Apache HTTP client and JSON Simple libraries.
+ * Copyright (c) 2016 Bluedot Innovation. All rights reserved.
+ * Add application client demonstrates adding an application to your Bluedot backend using Apache HTTP client and JSON Simple libraries.
  */
 
 public class AddApplication extends BDCommon {
@@ -40,18 +41,18 @@ public class AddApplication extends BDCommon {
 		CloseableHttpClient httpRestClient = HttpClients.custom().setSSLSocketFactory(getSSLContextFactory()).build();
 		
 		String application = 
-				"{" +
-					"\"security\": {" +
-						"\"customerApiKey\":" +"\"" +bdCustomerApiKey + "\"" +
-					"}," +
-					"\"content\": {"
-						+"\"application\" : {"+
-							"\"name\" : \"Java-Test Application-After-Create\"," +
-							"\"packageName\": \"com.bluedot.creationtestbdtestere\"," +
-							"\"nextRuleUpdateIntervalFormatted\": \"00:10\"" +
-						"}"+
+			"{" +
+				"\"security\": {" +
+					"\"customerApiKey\":" +"\"" +bdCustomerApiKey + "\"" +
+				"}," +
+				"\"content\": {"
+					+"\"application\" : {"+
+						"\"name\" : \"Java-Test Application-After-Create\"," +
+						"\"packageName\": \"com.bluedot.creationtestbdtestere\"," +
+						"\"nextRuleUpdateIntervalFormatted\": \"00:10\"" +
 					"}"+
-				"}";
+				"}"+
+			"}";
 					
 	    JSONObject bdApplicationJSONObject;	    
 	    JSONParser parser       = new JSONParser();
@@ -62,6 +63,7 @@ public class AddApplication extends BDCommon {
 		postRequest.setEntity(new StringEntity(bdApplicationJSONObject.toJSONString(), Charset.defaultCharset()));
 	 
 	    HttpResponse response = httpRestClient.execute(postRequest);
+	    
         if (response.getStatusLine().getStatusCode() == 200) {
         	System.out.println("Application was successfully created");
         	InputStream inputStream = response.getEntity().getContent();

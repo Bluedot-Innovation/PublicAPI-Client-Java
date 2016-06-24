@@ -19,7 +19,8 @@ import com.bluedotinnovation.common.BDCommon;
 
 /**
  * @author Bluedot Innovation
- * Add Beacon java client demonstrates adding a beacon to your Bluedot backend using Apache HTTP client and JSON Simple libraries.
+ * Copyright (c) 2016 Bluedot Innovation. All rights reserved.
+ * Add Beacon client demonstrates adding a beacon to your Bluedot backend using Apache HTTP client and JSON Simple libraries.
  */
 
 public class AddBeacon extends BDCommon {
