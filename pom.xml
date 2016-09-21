@@ -2,9 +2,9 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>BluedotPublicApiClient</groupId>
   <artifactId>BluedotPublicApiClient</artifactId>
-  <version>1.7.2-SNAPSHOT</version>
+  <version>1.8.1-SNAPSHOT</version>
   <name>Bluedot-PublicApi-Java-Client</name>
-  <description>This Node.js client project provides examples on how to interact with the Bluedot Public APIs. The examples can be run from command line or an IDE with Node.js plugin.</description>
+  <description>This Java client project provides examples on how to interact with the Bluedot Public APIs.</description>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
