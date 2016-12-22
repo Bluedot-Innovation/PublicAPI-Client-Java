@@ -68,7 +68,7 @@ public class UpdateZone extends BDCommon {
 	       "}," +
 	      "\"content\": {" +
 	            "\"zone\": {" +
-	               "\"zoneId\":" + "\"" + bdZoneId + "\"" +
+	               "\"zoneId\":" + "\"" + bdZoneId + "\"," +
 	               "\"zoneName\": \"First Test Bluedot Zone-Updated\"," +
 	               "\"minimumRetriggerTime\": \"11:11\"," +
 	               "\"enableCheckOut\": true," +

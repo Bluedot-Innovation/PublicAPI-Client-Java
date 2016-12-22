@@ -81,7 +81,7 @@ public class AddFence extends BDCommon {
 	        "}," + 
 	        "\"content\": {" +
 	            "\"zone\": {" +
-	                   "\"zoneId\":" + "\"" + bdZoneId + "\"," +
+	                "\"zoneId\":" + "\"" + bdZoneId + "\"," +
 	                "\"fences\": {" +
 	                    "\"circles\": [" +
 	                        "{"+
