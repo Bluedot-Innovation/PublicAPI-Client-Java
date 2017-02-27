@@ -85,6 +85,7 @@ public class AddFence extends BDCommon {
 	                "\"fences\": {" +
 	                    "\"circles\": [" +
 	                        "{"+
+	                        	"\"order\": 1," +
 	                            "\"name\": \"Circle-1\","+
 	                            "\"color\": \"#000ffff\","+
 	                            "\"radius\": \"30.330384237225\","+
@@ -115,6 +116,7 @@ public class AddFence extends BDCommon {
 		    		 "\"fences\": {" +
 		                "\"rectangles\": [" +
 		                    "{"+
+		                    	"\"order\": 2," +
 		                        "\"name\": \"Bounding Box-1\"," +
 		                        "\"color\": \"#3559e\"," +
 		                        "\"northEast\": {" +
@@ -148,6 +150,7 @@ public class AddFence extends BDCommon {
 				                "\"fences\": {" +
 				                "\"polygons\": [" +
 				                    "{" +
+				                    	"\"order\": 3," +
 				                        "\"name\": \"Polygon-1\"," +
 				                        "\"color\": \"#000ffff\"," +
 				                        "\"vertices\": [" +
@@ -195,7 +198,7 @@ public class AddFence extends BDCommon {
 	
 	/*Geoline fence requires a series points in lat/long*/
 	private static String getJsonGeoline() {
-		String GeolineJson = 
+		String geolineJson = 
 				       "{" +
 				           "\"security\": {" +
 				              "\"apiKey\":" + "\"" + bdApplicationApiKey + "\"," +
@@ -207,6 +210,7 @@ public class AddFence extends BDCommon {
 				                "\"fences\": {" +
 				                "\"polylines\": [" +
 				                    "{" +
+				                    	"\"order\": 4," +
 				                        "\"name\": \"Geoline-1\"," +
 				                        "\"color\": \"#000ffff\"," +
 				                        "\"vertices\": [" +
@@ -225,6 +229,6 @@ public class AddFence extends BDCommon {
 				        "}"+
 				     "}" +
 				"}";							
-		return GeolineJson;
+		return geolineJson;
 	}
 }

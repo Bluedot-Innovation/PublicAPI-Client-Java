@@ -91,7 +91,8 @@ public class AddCompleteZone extends BDCommon {
 	                "\"beacons\": [" +
 		            	"{" +
 			               "\"beaconId\":  \"b22ea927-f757-4a8f-8ba7-2960a4b688b2\"," +
-			    		   "\"proximity\": 1" +
+			    		   "\"proximity\": 1," +
+			    		   "\"order\": 1" +
 			    		"}"+
 			    	"]"+
 	            "}" +
@@ -121,7 +122,8 @@ public class AddCompleteZone extends BDCommon {
 	                           "\"center\": {"+
 	                               "\"latitude\": -37.818780,"+
 	                               "\"longitude\": 144.980734 "+
-	                           "}"+
+	                           "},"+
+	                           "\"order\": 2" +
 	                       "}" +
 	                   "]" +
 	               "},"+

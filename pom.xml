@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>BluedotPublicApiClient</groupId>
   <artifactId>BluedotPublicApiClient</artifactId>
-  <version>1.9.2-SNAPSHOT</version>
+  <version>1.9.4-SNAPSHOT</version>
   <name>Bluedot-PublicApi-Java-Client</name>
   <description>This Java client project provides examples on how to interact with the Bluedot Public APIs.</description>
   <build>

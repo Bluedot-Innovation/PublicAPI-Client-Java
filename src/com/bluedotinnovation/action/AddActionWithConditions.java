@@ -8,7 +8,6 @@ import java.security.NoSuchAlgorithmException;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -21,7 +20,8 @@ import com.bluedotinnovation.common.BDCommon;
 /**
  * @author Bluedot Innovation
  * Copyright (c) 2016 Bluedot Innovation. All rights reserved.
- * Add Action with conditions client demonstrates adding an action with conditions to an existing zone using JSON simple and Apache HTTP client libraries.
+ * Add Action with conditions client demonstrates adding an action with different types of conditions to an existing zone 
+ * using JSON simple and Apache HTTP client libraries.
  */
 
 public class AddActionWithConditions extends BDCommon {
@@ -45,7 +45,7 @@ public class AddActionWithConditions extends BDCommon {
 		HttpPost postRequest = new HttpPost(bdRestUrl);
   
 	    JSONParser parser    = new JSONParser();
-	    JSONObject bdMessageActionWithCondtionsJSONObject = (JSONObject) parser.parse(getJsonMessageActionWithConditions()); //action with conditions json
+	    JSONObject bdMessageActionWithCondtionsJSONObject = (JSONObject) parser.parse(getJsonActionWithSequentialCondition()); //action with sequential condition json
 				    		    
 		postRequest.addHeader("content-type", "application/json");
 
@@ -68,13 +68,10 @@ public class AddActionWithConditions extends BDCommon {
         }			
 	}
 
-    /**
-     * Example of Url Action.
-     * @return
-     */
-	private static String getJsonURLActionWithConditions() {
+    /* Example of Custom Action with Percentage Crossed condition. */
+	private static String getJsonActionWithPercentageCrossedCondition() {
 		
-		String urlActionWithCondtionsJson =
+		String customActionWithPercentageCrossedCondtionJson =
 			 "{" +
 	            "\"security\": {" +
 	                "\"apiKey\":" + "\"" + bdApplicationApiKey +"\"," +
@@ -84,51 +81,30 @@ public class AddActionWithConditions extends BDCommon {
 	                "\"zone\": {" +
 	                    "\"zoneId\":"+ "\"" + bdZoneId +"\"," +
 	            	    "\"actions\": {" +
-	        	        "\"urlActions\": [" +
+	            	    "\"customActions\": [" +
 	                        "{" +
-                             "\"name\": \"Bluedot URL\"," +
-                             "\"url\": \"http://www.bluedotinnovation.com\"" +
+	                            "\"name\": \"A Custom Action with Percentage Crossed Condition\"," +
 	                            "\"conditions\": {" +
-	                                "\"percentageCrossed\":"+
-	                                    "[" +
-	                                        "{" +
-	                                            "\"percentage\": 50," +
-	                                            "\"timeoutPeriod\": \"00:05\"" +
-	                                        "}" +
-	                                    "]," +
-	                                "\"dateRange\": [" +
-	                                    "{" +
-	                                        "\"start\": \"01/03/2014\"," +
-	                                        "\"end\": \"14/12/2014\"" +
-	                                    "}" +
-	                                "]," +
-	                                "\"timeActive\": [{" +
-	                                    "\"from\": {" +
-	                                        "\"time\": \"06:01\"," +
-	                                        "\"period\": \"am\" " +
-	                                    "}," +
-	                                    "\"to\": {" +
-	                                        "\"time\": \"11:00\"," +
-	                                        "\"period\": \"pm\" "+ 
-	                                    "}" +
-	                                "}]" +
-	                            "}" +
+	                               "\"percentageCrossed\": [" +
+	                                  "{" +
+	                                      "\"percentage\": 90," +
+	                                      "\"timeoutPeriod\": \"00:15\"" +
+	                                   "}" +
+	                              "]" +
+	                           "}" +
 	                        "}" +
 	                    "]" +
 	                  "}" +
 	                "}" +
 	            "}" +
 	        "}";
-		return urlActionWithCondtionsJson;
+		return customActionWithPercentageCrossedCondtionJson;
 	}
-
-    /**
-     * Example of Message Action.
-     * @return
-     */
-	private static String getJsonMessageActionWithConditions() {
+	
+	/* Example of Custom Action with Sequential condition. */
+	private static String getJsonActionWithSequentialCondition() {
 		
-		String messageActionWithCondtionsJson =
+		String customActionWithSequentialCondtionJson =
 			 "{" +
 	            "\"security\": {" +
 	                "\"apiKey\":" + "\"" + bdApplicationApiKey +"\"," +
@@ -138,43 +114,161 @@ public class AddActionWithConditions extends BDCommon {
 	                "\"zone\": {" +
 	                    "\"zoneId\":"+ "\"" + bdZoneId +"\"," +
 	            	    "\"actions\": {" +
-	        	        "\"messageActions\": [" +
+	            	    "\"customActions\": [" +
 	                        "{" +
-	                        "\"name\": \"Welcome to MCG\"," +
-                            "\"title\": \"MCG Welcome Message\"," +
-                            "\"message\": \"Welcome to MCG\"" +
+	                            "\"name\": \"A Custom Action with a Sequential Percentage Crossed Condition\"," +
 	                            "\"conditions\": {" +
-	                                "\"percentageCrossed\":"+
-	                                    "[" +
-	                                        "{" +
-	                                            "\"percentage\": 50," +
-	                                            "\"timeoutPeriod\": \"00:05\"" +
-	                                        "}" +
-	                                    "]," +
-	                                "\"dateRange\": [" +
-	                                    "{" +
-	                                        "\"start\": \"01/03/2014\"," +
-	                                        "\"end\": \"14/12/2014\"" +
-	                                    "}" +
-	                                "]," +
-	                                "\"timeActive\": [{" +
-	                                    "\"from\": {" +
-	                                        "\"time\": \"06:01\"," +
-	                                        "\"period\": \"am\" " +
-	                                    "}," +
-	                                    "\"to\": {" +
-	                                        "\"time\": \"11:00\"," +
-	                                        "\"period\": \"pm\" "+ 
-	                                    "}" +
-	                                "}]" +
-	                            "}" +
+	                               "\"percentageCrossed\": [" +
+	                                  "{" +
+	                                      "\"percentage\": 90," +
+	                                      "\"timeoutPeriod\": \"00:15\"," +
+	                                      "\"sequential\": true" +
+	                                   "}" +
+	                              "]" +
+	                           "}" +
 	                        "}" +
 	                    "]" +
 	                  "}" +
 	                "}" +
 	            "}" +
 	        "}";
-		return messageActionWithCondtionsJson;
+		return customActionWithSequentialCondtionJson;
+	}
+	
+	/* Example of Custom Action with Date Range condition. */
+	private static String getJsonActionWithDateRangeCondition() {
+		
+		String customActionWithDateRangeCondtionJson =
+			 "{" +
+	            "\"security\": {" +
+	                "\"apiKey\":" + "\"" + bdApplicationApiKey +"\"," +
+	                "\"customerApiKey\":" +"\"" + bdCustomerApiKey + "\""+
+	            "}," +
+	            "\"content\": {" +
+	                "\"zone\": {" +
+	                    "\"zoneId\":"+ "\"" + bdZoneId +"\"," +
+	            	    "\"actions\": {" +
+	            	    "\"customActions\": [" +
+	                        "{" +
+	                            "\"name\": \"A Custom Action with a Date Condition\"," +
+	                            "\"conditions\": {" +
+	                            "\"dateRange\": [" +
+	                                "{" +
+	                                    "\"start\": \"10/11/2016\"," +
+	                                    "\"end\": \"26/12/2017\"" +
+	                                "}" +
+	                            "]" +
+	                           "}" +
+	                        "}" +
+	                    "]" +
+	                  "}" +
+	                "}" +
+	            "}" +
+	        "}";
+		return customActionWithDateRangeCondtionJson;
+	}
+	
+	/* Example of Custom Action with Time Active condition. */
+	private static String getJsonActionWithTimeActiveCondition() {
+		
+		String customActionWithTimeActiveCondtionJson =
+			 "{" +
+	            "\"security\": {" +
+	                "\"apiKey\":" + "\"" + bdApplicationApiKey +"\"," +
+	                "\"customerApiKey\":" +"\"" + bdCustomerApiKey + "\""+
+	            "}," +
+	            "\"content\": {" +
+	                "\"zone\": {" +
+	                    "\"zoneId\":"+ "\"" + bdZoneId +"\"," +
+	            	    "\"actions\": {" +
+	            	    "\"customActions\": [" +
+	                        "{" +
+	                            "\"name\": \"A Custom Action with a Time Condition\"," +
+	                            "\"conditions\": {" +
+		                            "\"timeActive\": [{" +
+		                                "\"from\": {" +
+		                                    "\"time\": \"06:01\"," +
+		                                    "\"period\": \"am\" " +
+		                                "}," +
+		                                "\"to\": {" +
+		                                    "\"time\": \"11:00\"," +
+		                                    "\"period\": \"pm\" " +
+		                                "}" +
+		                            "}]" +
+	                           "}" +
+	                        "}" +
+	                    "]" +
+	                  "}" +
+	                "}" +
+	            "}" +
+	        "}";
+		return customActionWithTimeActiveCondtionJson;
+	}
+	
+	/* Example of Custom Action with Bearing condition. */
+	private static String getJsonActionWithBearingCondition() {
+		
+		String customActionWithBearingCondtionJson =
+			 "{" +
+	            "\"security\": {" +
+	                "\"apiKey\":" + "\"" + bdApplicationApiKey +"\"," +
+	                "\"customerApiKey\":" +"\"" + bdCustomerApiKey + "\""+
+	            "}," +
+	            "\"content\": {" +
+	                "\"zone\": {" +
+	                    "\"zoneId\":"+ "\"" + bdZoneId +"\"," +
+	            	    "\"actions\": {" +
+	            	    "\"customActions\": [" +
+	                        "{" +
+	                            "\"name\": \"A Custom Action with a Time Condition\"," +
+	                            "\"conditions\": {" +
+	                            "\"bearing\": [" +
+	                                "{" +
+	                                    "\"fromAngle\": 0," +
+	                                    "\"toAngle\": 90" +
+	                                "}" +
+	                            "]" +
+	                           "}" +
+	                        "}" +
+	                    "]" +
+	                  "}" +
+	                "}" +
+	            "}" +
+	        "}";
+		return customActionWithBearingCondtionJson;
+	}
+	
+	/* Example of Custom Action with Speed condition. */
+	private static String getJsonActionWithSpeedCondition() {
+		
+		String customActionWithSpeedCondtionJson =
+			 "{" +
+	            "\"security\": {" +
+	                "\"apiKey\":" + "\"" + bdApplicationApiKey +"\"," +
+	                "\"customerApiKey\":" +"\"" + bdCustomerApiKey + "\""+
+	            "}," +
+	            "\"content\": {" +
+	                "\"zone\": {" +
+	                    "\"zoneId\":"+ "\"" + bdZoneId +"\"," +
+	            	    "\"actions\": {" +
+	            	    "\"customActions\": [" +
+	                        "{" +
+	                            "\"name\": \"A Custom Action with a Time Condition\"," +
+	                            "\"conditions\": {" +
+	                            "\"speed\": [" +
+	                                "{" +
+	                                    "\"minmumSpeed\": 10," +
+	                                    "\"maximumSpeed\": 20" +
+	                                "}" +
+	                            "]" +
+	                           "}" +
+	                        "}" +
+	                    "]" +
+	                  "}" +
+	                "}" +
+	            "}" +
+	        "}";
+		return customActionWithSpeedCondtionJson;
 	}
 
 }

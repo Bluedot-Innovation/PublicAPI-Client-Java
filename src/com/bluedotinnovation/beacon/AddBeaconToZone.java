@@ -79,7 +79,8 @@ public class AddBeaconToZone extends BDCommon {
 				            "\"beacons\": [" +
 				            	"{" +
 					               "\"beaconId\":  \"b22ea927-f757-4a8f-8ba7-2960a4b688b2\"," +
-					    		   "\"proximity\": 1" +
+					    		   "\"proximity\": 1," +
+					    		   "\"order\": 1" +
 					    		"}"+
 					    	"]"+
 				        "}"+

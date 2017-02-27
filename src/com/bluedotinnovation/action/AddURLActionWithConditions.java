@@ -74,31 +74,43 @@ public class AddURLActionWithConditions extends BDCommon {
                             "{" +
                              "\"name\": \"Bluedot URL\"," +
                              "\"url\": \"http://www.bluedotinnovation.com\"" +
-                                "\"conditions\": {" +
-                                    "\"percentageCrossed\":" +
-                                        "[" +
-                                            "{" +
-                                                "\"percentage\": 50," +
-                                                "\"timeoutPeriod\": \"00:05\"" +
-                                            "}" +
-                                        "]," +
-                                    "\"dateRange\": [" +
-                                        "{" +
-                                            "\"start\": \"01/03/2014\"," +
-                                            "\"end\": \"14/12/2014\"" +
-                                        "}" +
-                                    "]," +
-                                    "\"timeActive\": [{" +
-                                        "\"from\": {" +
-                                            "\"time\": \"06:01\"," +
-                                            "\"period\": \"am\" " +
-                                        "}," +
-                                        "\"to\": {" +
-                                            "\"time\": \"11:00\"," +
-                                            "\"period\": \"pm\" " +
-                                        "}" +
-                                    "}]" +
-                                "}" +
+                             "\"conditions\": {" +
+	                             "\"dateRange\": [" +
+	                                 "{" +
+	                                     "\"start\": \"10/11/2016\"," +
+	                                     "\"end\": \"26/12/2017\"" +
+	                                 "}" +
+	                             "]," +
+	                             "\"percentageCrossed\": [" +
+	                                "{" +
+	                                    "\"percentage\": 90," +
+	                                    "\"timeoutPeriod\": \"00:15\"," +
+	                                    "\"sequential\": true" +
+	                                 "}" +
+	                            "]," +
+	                            "\"timeActive\": [{" +
+	                              "\"from\": {" +
+	                                  "\"time\": \"06:01\"," +
+	                                  "\"period\": \"am\" " +
+	                              "}," +
+	                              "\"to\": {" +
+	                                  "\"time\": \"11:00\"," +
+	                                  "\"period\": \"pm\" " +
+	                              "}" +
+	                          "}]," +
+	                          "\"bearing\": [" +
+	                              "{" +
+	                                  "\"fromAngle\": 0," +
+	                                  "\"toAngle\": 90" +
+	                              "}" +
+	                          "]," +
+	                          "\"speed\": [" +
+	                              "{" +
+	                                  "\"minmumSpeed\": 10," +
+	                                  "\"maximumSpeed\": 20" +
+	                              "}" +
+	                          "]" +
+	                         "}" +
                             "}" +
                         "]" +
                       "}" +

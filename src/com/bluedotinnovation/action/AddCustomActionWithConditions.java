@@ -86,16 +86,39 @@ public class AddCustomActionWithConditions extends BDCommon {
 	                                "\"conditions\": {" +
 		                               "\"dateRange\": [" +
 		                                   "{" +
-		                                       "\"start\": \"10/11/2014\"," +
-		                                       "\"end\": \"26/12/2014\"" +
+		                                       "\"start\": \"10/11/2016\"," +
+		                                       "\"end\": \"26/12/2017\"" +
 		                                   "}" +
 		                               "]," +
 		                               "\"percentageCrossed\": [" +
 		                                  "{" +
 		                                      "\"percentage\": 90," +
-		                                      "\"timeoutPeriod\": \"00:15\"" +
+		                                      "\"timeoutPeriod\": \"00:15\"," +
+		                                      "\"sequential\": true" +
 		                                   "}" +
-		                              "]" +
+		                              "]," +
+		                              "\"timeActive\": [{" +
+		                                "\"from\": {" +
+		                                    "\"time\": \"06:01\"," +
+		                                    "\"period\": \"am\" " +
+		                                "}," +
+		                                "\"to\": {" +
+		                                    "\"time\": \"11:00\"," +
+		                                    "\"period\": \"pm\" " +
+		                                "}" +
+		                            "}]," +
+		                            "\"bearing\": [" +
+		                                "{" +
+		                                    "\"fromAngle\": 0," +
+		                                    "\"toAngle\": 90" +
+		                                "}" +
+		                            "]," +
+		                            "\"speed\": [" +
+		                                "{" +
+		                                    "\"minmumSpeed\": 10," +
+		                                    "\"maximumSpeed\": 20" +
+		                                "}" +
+		                            "]" +
 		                           "}" +
 	                            "}" +
 	                        "]" +

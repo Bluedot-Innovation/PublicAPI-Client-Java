@@ -82,7 +82,8 @@ public class AddMultipleFences extends BDCommon {
                  "\"fences\": {" +
                      "\"circles\": [" +
                          "{" +
-                             "\"name\": \"Circular fence-added through API 01\"," +
+                         	 "\"order\": 1," +
+                         	 "\"name\": \"Circular fence-added through API 01\"," +
                              "\"color\": \"#000fff\"," +
                              "\"radius\": 20.235," +
                              "\"center\": {" +
@@ -91,6 +92,7 @@ public class AddMultipleFences extends BDCommon {
                              "}" +
                          "}," +
                          "{" +
+                         	 "\"order\": 2," +
                              "\"name\": \"Circular fence-added through API 02\"," +
                              "\"color\": \"#000fff\"," +
                              "\"radius\": 30," +
@@ -102,6 +104,7 @@ public class AddMultipleFences extends BDCommon {
                      "]," +
                      "\"rectangles\": [" +
                         "{" +
+                        	"\"order\": 3," +
                             "\"name\": \"Bounding Box-1\"," +
                             "\"color\": \"#3559ef\"," +
                             "\"northEast\": {" +
@@ -116,6 +119,7 @@ public class AddMultipleFences extends BDCommon {
                     "]," +
                     "\"polygons\": [" +
                         "{" +
+                        	"\"order\": 3," +
                             "\"name\": \"Polygon-2\"," +
                             "\"color\": \"#000fff\"," +
                             "\"vertices\": [" +
@@ -139,21 +143,22 @@ public class AddMultipleFences extends BDCommon {
                         "}" +
                     "]," +
                     "\"polylines\": [" +
-                    "{" +
-                        "\"name\": \"Geoline-1\"," +
-                        "\"color\": \"#000fff\"," +
-                        "\"vertices\": [" +
-                             "{" +
-                                "\"latitude\": -37.819540," +
-                                "\"longitude\": 144.982125" +
-                             "}," +
-                             "{" +
-                                "\"latitude\": -37.820298," +
-                                "\"longitude\": 144.985178" +
-                             "}" +
-                        "]" +
-                    "}" +
-                "]" +
+	                    "{" +
+	                    	"\"order\": 4," +
+	                        "\"name\": \"Geoline-1\"," +
+	                        "\"color\": \"#000fff\"," +
+	                        "\"vertices\": [" +
+	                             "{" +
+	                                "\"latitude\": -37.819540," +
+	                                "\"longitude\": 144.982125" +
+	                             "}," +
+	                             "{" +
+	                                "\"latitude\": -37.820298," +
+	                                "\"longitude\": 144.985178" +
+	                             "}" +
+	                        "]" +
+	                    "}" +
+	                "]" +
                  "}" +
              "}" +
          "}" +
